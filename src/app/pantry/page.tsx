@@ -1,6 +1,6 @@
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
-import { signOutAction } from "@/server/sign-out";
+import { signOutAction } from "@/server/auth/sign-out";
 
 export default async function Home() {
   const supabase = createClient();

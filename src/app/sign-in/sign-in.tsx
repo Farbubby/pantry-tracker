@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-label";
-import { signInAction } from "@/server/sign-in";
+import { signInAction } from "@/server/auth/sign-in";
 import { useFormState } from "react-dom";
 
 export default function SignUp() {
