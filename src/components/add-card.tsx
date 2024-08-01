@@ -7,6 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import AddButton from "@/components/add-button";
 
 export default function AddCard() {
   return (
@@ -23,11 +24,7 @@ export default function AddCard() {
           </CardDescription>
         </CardContent>
         <CardFooter className="flex flex-row justify-between">
-          <Button
-            variant={"ghost"}
-            className="border border-gray-800 hover:bg-orange-400 hover:text-black">
-            Enter item
-          </Button>
+          <AddButton />
           <Button
             variant={"ghost"}
             className="border border-gray-800 hover:bg-orange-400 hover:text-black">

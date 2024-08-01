@@ -1,11 +1,16 @@
+"use server";
+
 import { createClient } from "@/utils/supabase/server";
 import { z } from "zod";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 
 const AddItemSchema = z.object({
-  name: z.string().min(1, "Name is required"),
-  quantity: z.number().int().min(1, "Quantity is required"),
+  name: z
+    .string()
+    .min(1, "Name is required")
+    .regex(/^[A-Za-z]+$/, "No special characters or numbers allowed"),
+  quantity: z.number().int().min(1, "Quantity must be greater than 0"),
 });
 
 export async function addItemAction(_: unknown, formData: FormData) {
@@ -19,7 +24,11 @@ export async function addItemAction(_: unknown, formData: FormData) {
     return redirect("/sign-in");
   }
 
-  const userInput = Object.fromEntries(formData.entries());
+  const userInput = {
+    name: formData.get("name") as string,
+    quantity: parseInt(formData.get("quantity") as string),
+  };
+
   const parsed = AddItemSchema.safeParse(userInput);
 
   if (!parsed.success) {
@@ -39,6 +48,20 @@ export async function addItemAction(_: unknown, formData: FormData) {
     return {
       fieldError: {
         quantity: "Quantity must be greater than 0",
+      },
+    };
+  }
+
+  const { data } = await supabase
+    .from("pantry")
+    .select()
+    .eq("name", name)
+    .eq("uuid", user.id);
+
+  if (data && data.length > 0) {
+    return {
+      fieldError: {
+        name: "Item already exists",
       },
     };
   }
