@@ -67,3 +67,12 @@
     @apply bg-background text-foreground;
   }
 }
+
+::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: none; /* Firefox */
+}
