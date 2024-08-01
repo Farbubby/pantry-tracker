@@ -16,6 +16,9 @@ export default function SignUp() {
         className="flex flex-col gap-4 w-full max-w-96"
         noValidate>
         <div className="flex flex-col gap-1">
+          {state?.error && (
+            <div className="text-sm text-red-500">{state.error}</div>
+          )}
           <Label htmlFor="email" className="text-orange-500 text-sm">
             Email
           </Label>

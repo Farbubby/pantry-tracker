@@ -34,5 +34,5 @@ export async function signInAction(_: unknown, formData: FormData) {
     return { error: error.message };
   }
 
-  redirect("/pantry");
+  redirect("/menu");
 }

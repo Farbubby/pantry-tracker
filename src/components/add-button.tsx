@@ -27,7 +27,7 @@ export default function AddButton() {
             Add item
           </Button>
         </DialogTrigger>
-        <DialogContent className="bg-gray-950 text-orange-400 border-orange-400">
+        <DialogContent className="bg-gray-950 text-orange-400 border-orange-400 w-11/12">
           <DialogHeader>
             <DialogTitle>Add your item</DialogTitle>
             <DialogDescription>

@@ -27,7 +27,7 @@ export default function RemoveButton() {
             Delete item
           </Button>
         </DialogTrigger>
-        <DialogContent className="bg-gray-950 text-orange-400 border-orange-400">
+        <DialogContent className="bg-gray-950 text-orange-400 border-orange-400 w-11/12">
           <DialogHeader>
             <DialogTitle>Delete an item</DialogTitle>
             <DialogDescription>

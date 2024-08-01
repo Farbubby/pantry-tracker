@@ -12,7 +12,7 @@ export default function Menu() {
           Welcome to Pantry Pandas!
         </h1>
         <div className="flex flex-row gap-10">
-          <div className="grid grid-cols-4 gap-4">
+          <div className="md:grid lg:grid-cols-4 md:grid-col-2 gap-4 flex flex-col">
             <StatsCard />
             <AddCard />
             <UpdateCard />

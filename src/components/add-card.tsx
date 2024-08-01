@@ -23,7 +23,7 @@ export default function AddCard() {
             </div>
           </CardDescription>
         </CardContent>
-        <CardFooter className="flex flex-row justify-between">
+        <CardFooter className="flex flex-wrap gap-4">
           <AddButton />
           <Button
             variant={"ghost"}

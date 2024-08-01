@@ -14,7 +14,7 @@ export default async function Navbar() {
 
   return (
     <>
-      <nav className="bg-gray-950 px-8 border-b border-gray-800 h-14 flex flex-row">
+      <nav className="bg-gray-950 px-8 border-b border-gray-800 h-14 flex flex-row fixed w-full top-0">
         <div className="flex flex-row gap-4 w-full justify-between items-center">
           <h1 className="text-lg text-white">Welcome, {user.email}!</h1>
           <form action={signOutAction}>
