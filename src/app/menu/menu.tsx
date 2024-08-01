@@ -1,5 +1,9 @@
 import Navbar from "@/components/navbar";
 import Option from "@/components/option";
+import AddCard from "@/components/add-card";
+import UpdateCard from "@/components/update-card";
+import RemoveCard from "@/components/remove-card";
+import RecipeGenCard from "@/components/recipe-gen-card";
 
 export default function Menu() {
   return (
@@ -26,27 +30,10 @@ export default function Menu() {
                 <div>View pantry</div>
               </div>
             </div>
-            <Option
-              title="Add item?"
-              description="Want to add an item to your pantry?"
-              buttonText1="Enter item"
-              buttonText2="Take a picture"
-            />
-            <Option
-              title="Remove item?"
-              description="Want to remove an item from your pantry?"
-              buttonText1="Remove"
-            />
-            <Option
-              title="Update item?"
-              description="Want to update an item in your pantry?"
-              buttonText1="Update"
-            />
-            <Option
-              title="Need recipes?"
-              description="Want to find recipes based on your pantry?"
-              buttonText1="Cook!"
-            />
+            <AddCard />
+            <UpdateCard />
+            <RemoveCard />
+            <RecipeGenCard />
           </div>
         </div>
       </div>
