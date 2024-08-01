@@ -24,7 +24,7 @@ export default function ItemCard({ name, quantity }: ItemProps) {
           </CardDescription>
         </CardHeader>
         <CardContent></CardContent>
-        <CardFooter className="flex flex-row gap-24">
+        <CardFooter className="flex flex-row justify-between">
           <Button
             variant={"ghost"}
             className="hover:bg-gray-950 hover:text-orange-400 duration-200 border border-black">

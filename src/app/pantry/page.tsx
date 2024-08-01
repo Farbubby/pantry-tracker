@@ -1,6 +1,6 @@
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
-import { signOutAction } from "@/server/auth/sign-out";
+import Menu from "./menu";
 
 export default async function Home() {
   const supabase = createClient();
@@ -14,10 +14,7 @@ export default async function Home() {
 
   return (
     <>
-      <div className="text-white">Pantry page</div>
-      <form action={signOutAction}>
-        <button className="text-white">Log out</button>
-      </form>
+      <Menu />
     </>
   );
 }
