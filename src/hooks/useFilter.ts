@@ -17,38 +17,21 @@ export const useFilter = (filter: string) => {
         return null;
       }
 
-      if (filter) {
-        const { data, error } = await supabase
-          .from("pantry")
-          .select()
-          .eq("name", filter)
-          .eq("uuid", user.id);
+      const { data, error } = await supabase
+        .from("pantry")
+        .select()
+        .eq("uuid", user.id)
+        .ilike("name", `%${filter}%`);
 
-        if (error) {
-          return null;
-        }
-
-        if (!data || (data && data.length === 0)) {
-          return null;
-        }
-
-        setList(data);
-      } else {
-        const { data, error } = await supabase
-          .from("pantry")
-          .select()
-          .eq("uuid", user.id);
-
-        if (error) {
-          return null;
-        }
-
-        if (!data || (data && data.length === 0)) {
-          return null;
-        }
-
-        setList(data);
+      if (error) {
+        return null;
       }
+
+      if (!data || (data && data.length === 0)) {
+        return null;
+      }
+
+      setList(data);
     };
     fetchList();
   }, [filter]);
