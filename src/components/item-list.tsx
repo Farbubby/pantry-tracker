@@ -13,7 +13,7 @@ export default function ItemList({ query }: QueryProps) {
   if (!list) {
     return (
       <div>
-        The panty is empty! Go back to the menu if you would like to add
+        The pantry is empty! Go back to the menu if you would like to add
         something to the pantry.
       </div>
     );
