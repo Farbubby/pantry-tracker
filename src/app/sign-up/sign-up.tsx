@@ -50,7 +50,10 @@ export default function SignUp() {
             </div>
           )}
         </div>
-        <Button type="submit" className="bg-orange-500 hover:text-orange-500">
+        <Button
+          type="submit"
+          className=" hover:text-gray-950 text-orange-400 hover:bg-orange-400 border border-gray-800"
+          variant={"ghost"}>
           Sign Up
         </Button>
       </form>
