@@ -1,5 +1,4 @@
 import AddCard from "@/components/add-card";
-import UpdateCard from "@/components/update-card";
 import RecipeGenCard from "@/components/recipe-gen-card";
 import StatsCard from "@/components/stats-card";
 
@@ -14,7 +13,6 @@ export default function Menu() {
           <div className="md:grid lg:grid-cols-4 md:grid-col-2 gap-4 flex flex-col">
             <StatsCard />
             <AddCard />
-            <UpdateCard />
             <RecipeGenCard />
           </div>
         </div>

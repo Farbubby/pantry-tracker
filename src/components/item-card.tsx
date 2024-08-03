@@ -8,7 +8,8 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ItemContext } from "@/context/item";
-import DeleteButton from "@/components/delete-button";
+import UpdateButton from "./update-button";
+import DeleteButton from "./delete-button";
 
 interface ItemProps {
   name: string;
@@ -28,6 +29,7 @@ export default function ItemCard({ name, quantity }: ItemProps) {
         <CardContent></CardContent>
         <CardFooter className="flex flex-row gap-20">
           <ItemContext.Provider value={{ name, quantity }}>
+            <UpdateButton />
             <DeleteButton />
           </ItemContext.Provider>
           {/* <Button
