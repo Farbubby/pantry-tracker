@@ -1,6 +1,5 @@
 import AddCard from "@/components/add-card";
 import UpdateCard from "@/components/update-card";
-import DeleteCard from "@/components/delete-card";
 import RecipeGenCard from "@/components/recipe-gen-card";
 import StatsCard from "@/components/stats-card";
 
@@ -16,7 +15,6 @@ export default function Menu() {
             <StatsCard />
             <AddCard />
             <UpdateCard />
-            <DeleteCard />
             <RecipeGenCard />
           </div>
         </div>

@@ -7,6 +7,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { ItemContext } from "@/context/item";
+import DeleteButton from "@/components/delete-button";
 
 interface ItemProps {
   name: string;
@@ -25,7 +27,10 @@ export default function ItemCard({ name, quantity }: ItemProps) {
         </CardHeader>
         <CardContent></CardContent>
         <CardFooter className="flex flex-row gap-20">
-          <Button
+          <ItemContext.Provider value={{ name, quantity }}>
+            <DeleteButton />
+          </ItemContext.Provider>
+          {/* <Button
             variant={"ghost"}
             className="hover:bg-orange-400 duration-200 border border-gray-800 fill-orange-400 hover:fill-gray-950">
             <svg
@@ -58,7 +63,7 @@ export default function ItemCard({ name, quantity }: ItemProps) {
                 fill-rule="nonzero"
               />
             </svg>
-          </Button>
+          </Button> */}
         </CardFooter>
       </Card>
       ;
