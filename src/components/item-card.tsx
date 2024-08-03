@@ -27,7 +27,7 @@ export default function ItemCard({ name, quantity }: ItemProps) {
           </CardDescription>
         </CardHeader>
         <CardContent></CardContent>
-        <CardFooter className="flex flex-row gap-20">
+        <CardFooter className="flex flex-row justify-between">
           <ItemContext.Provider value={{ name, quantity }}>
             <UpdateButton />
             <DeleteButton />
@@ -68,7 +68,6 @@ export default function ItemCard({ name, quantity }: ItemProps) {
           </Button> */}
         </CardFooter>
       </Card>
-      ;
     </>
   );
 }

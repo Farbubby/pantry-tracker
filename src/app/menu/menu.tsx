@@ -1,6 +1,6 @@
 import AddCard from "@/components/add-card";
 import RecipeGenCard from "@/components/recipe-gen-card";
-import StatsCard from "@/components/stats-card";
+import SearchCard from "@/components/search-card";
 
 export default function Menu() {
   return (
@@ -11,7 +11,7 @@ export default function Menu() {
         </h1>
         <div className="flex flex-row gap-10">
           <div className="md:grid lg:grid-cols-4 md:grid-col-2 gap-4 flex flex-col">
-            <StatsCard />
+            <SearchCard />
             <AddCard />
             <RecipeGenCard />
           </div>

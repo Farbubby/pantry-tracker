@@ -1,6 +1,6 @@
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
-import Search from "@/app/menu/pantry/search";
+import SearchCard from "@/components/search-card";
 
 export default async function Home() {
   const supabase = createClient();
@@ -15,7 +15,7 @@ export default async function Home() {
 
   return (
     <>
-      <Search />
+      <SearchCard />
     </>
   );
 }

@@ -21,7 +21,8 @@ export const useFilter = (filter: string) => {
         .from("pantry")
         .select()
         .eq("uuid", user.id)
-        .ilike("name", `%${filter}%`);
+        .ilike("name", `%${filter}%`)
+        .order("created_at", { ascending: true });
 
       if (error) {
         return null;
