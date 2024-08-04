@@ -12,22 +12,14 @@ export default async function Navbar() {
     return null;
   }
 
+  const name = user.email?.split("@")[0];
+
   return (
     <>
       <nav className="bg-gray-950 px-8 border-b border-gray-800 h-14 flex flex-row fixed w-full top-0">
         <div className="flex flex-row gap-4 w-full justify-between items-center">
-          <h1 className="text-lg text-white">Welcome, {user.email}!</h1>
+          <h1 className="text-lg text-white">Welcome, {name}!</h1>
           <div className="flex flex-row gap-4">
-            <a
-              href="/menu"
-              className="text-white hover:text-orange-400 duration-200">
-              Menu
-            </a>
-            <a
-              href="/menu/pantry"
-              className="text-white hover:text-orange-400 duration-200">
-              Pantry
-            </a>
             <form action={signOutAction}>
               <button className="text-white hover:text-orange-400 duration-200">
                 Logout

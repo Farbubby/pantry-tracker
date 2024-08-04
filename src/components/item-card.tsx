@@ -23,11 +23,11 @@ export default function ItemCard({ name, quantity }: ItemProps) {
         <CardHeader>
           <CardTitle>{name}</CardTitle>
           <CardDescription>
-            <div className="text-sm">Quantity: [ {quantity} ]</div>
+            <div className="text-sm">Quantity: [ x{quantity} ]</div>
           </CardDescription>
         </CardHeader>
         <CardContent></CardContent>
-        <CardFooter className="flex flex-row justify-between">
+        <CardFooter className="flex flex-wrap gap-4">
           <ItemContext.Provider value={{ name, quantity }}>
             <UpdateButton />
             <DeleteButton />

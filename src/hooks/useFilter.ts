@@ -22,7 +22,7 @@ export const useFilter = (filter: string) => {
         .select()
         .eq("uuid", user.id)
         .ilike("name", `%${filter}%`)
-        .order("created_at", { ascending: true });
+        .order("created_at", { ascending: false });
 
       if (error) {
         return null;

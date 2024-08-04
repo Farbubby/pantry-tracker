@@ -79,5 +79,5 @@ export async function addItemAction(_: unknown, formData: FormData) {
     return { error: error.message };
   }
 
-  return revalidatePath("/pantry", "page");
+  return revalidatePath("/");
 }

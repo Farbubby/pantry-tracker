@@ -10,10 +10,10 @@ export default function Menu() {
           Welcome to Pantry Pandas!
         </h1>
         <div className="flex flex-row gap-10">
-          <div className="md:grid lg:grid-cols-4 md:grid-col-2 gap-4 flex flex-col">
-            <SearchCard />
+          <div className="sm:grid lg:grid-cols-4 sm:grid-col-2 gap-4 flex flex-col">
             <AddCard />
             <RecipeGenCard />
+            <SearchCard />
           </div>
         </div>
       </div>
