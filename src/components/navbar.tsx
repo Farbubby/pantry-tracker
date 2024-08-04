@@ -1,3 +1,18 @@
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { signOutAction } from "@/server/auth/sign-out";
 import { createClient } from "@/utils/supabase/server";
 
@@ -12,20 +27,28 @@ export default async function Navbar() {
     return null;
   }
 
-  const name = user.email?.split("@")[0];
-
   return (
     <>
       <nav className="bg-gray-950 px-8 border-b border-gray-800 h-14 flex flex-row fixed w-full top-0">
-        <div className="flex flex-row gap-4 w-full justify-between items-center">
-          <h1 className="text-lg text-white">Welcome, {name}!</h1>
-          <div className="flex flex-row gap-4">
-            <form action={signOutAction}>
-              <button className="text-white hover:text-orange-400 duration-200">
-                Logout
-              </button>
-            </form>
-          </div>
+        <div className="flex flex-row gap-4 w-full justify-end items-center">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" className="">
+                Open
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56 bg-gray-950 text-orange-400">
+              <DropdownMenuLabel>{user.email}</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>
+                <form action={signOutAction}>
+                  <button className="text-white hover:text-orange-400 duration-200">
+                    Logout
+                  </button>
+                </form>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </nav>
     </>
