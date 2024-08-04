@@ -35,6 +35,12 @@ export default function AddButton() {
             </DialogDescription>
           </DialogHeader>
           <div className="flex flex-col w-full items-center">
+            {state?.error && (
+              <div className="text-sm text-red-500">{state.error}</div>
+            )}
+            {state?.success && (
+              <div className="text-sm text-green-500">{state.success}</div>
+            )}
             <form
               action={addItem}
               className="flex flex-col gap-4 w-full max-w-96"

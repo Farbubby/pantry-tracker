@@ -25,5 +25,5 @@ export async function deleteItemAction(name: string, _: unknown) {
     return { error: error.message };
   }
 
-  return revalidatePath("/menu/pantry");
+  return { success: "Item deleted successfully" };
 }

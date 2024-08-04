@@ -60,5 +60,5 @@ export async function updateItemAction(
     return { error: error.message };
   }
 
-  return revalidatePath("/menu/pantry");
+  return { success: "Item updated successfully" };
 }
