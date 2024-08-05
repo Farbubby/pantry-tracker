@@ -31,7 +31,7 @@ export default function AddButton() {
           <DialogHeader>
             <DialogTitle>Add your item</DialogTitle>
             <DialogDescription>
-              Type a name of an item you want added. Click Add when done.
+              Type a name and quantity of an item you want added.
             </DialogDescription>
           </DialogHeader>
           <div className="flex flex-col w-full items-center">

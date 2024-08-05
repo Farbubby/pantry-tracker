@@ -33,7 +33,9 @@ export default async function Navbar() {
         <div className="flex flex-row gap-4 w-full justify-end items-center">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="">
+              <Button
+                variant="outline"
+                className="bg-gray-950 text-orange-400 border border-gray-800 hover:bg-orange-400 hover:text-black">
                 Open
               </Button>
             </DropdownMenuTrigger>
@@ -41,10 +43,8 @@ export default async function Navbar() {
               <DropdownMenuLabel>{user.email}</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
-                <form action={signOutAction}>
-                  <button className="text-white hover:text-orange-400 duration-200">
-                    Logout
-                  </button>
+                <form action={signOutAction} className="w-full">
+                  <button className="w-full text-left">Logout</button>
                 </form>
               </DropdownMenuItem>
             </DropdownMenuContent>

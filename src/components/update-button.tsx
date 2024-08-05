@@ -37,7 +37,7 @@ export default function UpdateButton() {
           <DialogHeader>
             <DialogTitle>Update the quantity of your item</DialogTitle>
             <DialogDescription>
-              Enter a number greater than 0. Click Update when done
+              Enter a number greater than 0.
             </DialogDescription>
           </DialogHeader>
           <div className="flex flex-col w-full items-center">

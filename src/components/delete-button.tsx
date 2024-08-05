@@ -34,9 +34,7 @@ export default function RemoveButton() {
         <DialogContent className="bg-gray-950 text-orange-400 border-orange-400 w-11/12">
           <DialogHeader>
             <DialogTitle>Delete an item</DialogTitle>
-            <DialogDescription>
-              Type a name of an item you want deleted. Click Delete when done.
-            </DialogDescription>
+            <DialogDescription>Do you want to delete?</DialogDescription>
           </DialogHeader>
           <div className="flex flex-col w-full items-center">
             {state?.error && (
