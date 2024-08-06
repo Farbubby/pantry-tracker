@@ -7,6 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import RecipeGenButton from "@/components/recipe-gen-button";
 
 export default function RecipeGenCard() {
   return (
@@ -23,11 +24,7 @@ export default function RecipeGenCard() {
           </CardDescription>
         </CardContent>
         <CardFooter className="flex flex-row justify-between">
-          <Button
-            variant={"ghost"}
-            className="border border-gray-800 hover:bg-orange-400 hover:text-black">
-            Cook!
-          </Button>
+          <RecipeGenButton />
         </CardFooter>
       </Card>
     </>
