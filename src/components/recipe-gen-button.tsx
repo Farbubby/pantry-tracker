@@ -34,13 +34,15 @@ export default async function RecipeGenButton() {
     messages: [
       {
         role: "user",
-        content:
-          'Generate a list of recipes that can be made using only the items in the pantry list provided. For each recipe, provide the required ingredients with their quantities and any missing ingredients with their quantities. Format the result as a JSON object with "recipe" as the recipe name, "required" as an array of required ingredients, and "missing" as an array of missing ingredients. Just provide the JSON format, forget and remove the extraneous text. Here is the pantry list: ' +
-          JSON.stringify(data),
+        content: `Generate one recipe that includes only the items in the pantry list provided. Just provide the recipe name, list and amounts of ingredients required to make it, and the instructions. Make sure it is stricly in a JSON format and remove extra text.
+        Here is the pantry list: ${JSON.stringify(data)}`,
       },
     ],
+    temperature: 0.5,
     model: "llama3-8b-8192",
   });
+
+  const response = chatCompletion.choices[0]?.message?.content as string;
 
   return (
     <>
@@ -59,8 +61,15 @@ export default async function RecipeGenButton() {
               Here are some possible recipes you can make based on your pantry.
             </DialogDescription>
           </DialogHeader>
-          {chatCompletion.choices[0]?.message?.content ||
-            "Sorry, I can't find anything to make :("}
+          {response || "Try to generate a recipe! :)"}
+          <DialogFooter>
+            <Button
+              type="submit"
+              variant={"ghost"}
+              className="border border-gray-800 hover:bg-orange-400 hover:text-black">
+              Get a recipe
+            </Button>
+          </DialogFooter>
         </DialogContent>
       </Dialog>
     </>
