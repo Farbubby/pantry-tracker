@@ -13,8 +13,8 @@ export default function Menu() {
         <div className="flex flex-row gap-10">
           <div className="sm:grid lg:grid-cols-4 sm:grid-col-2 gap-4 flex flex-col">
             <StatsCard />
-            <AddCard />
             <SearchCard />
+            <AddCard />
             <RecipeGenCard />
           </div>
         </div>

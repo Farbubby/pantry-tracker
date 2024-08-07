@@ -33,7 +33,7 @@ export default async function StatsCard() {
   });
 
   return (
-    <div className="p-4 rounded-lg shadow-md w-full text-orange-400 bg-gray-950 border border-gray-800">
+    <div className="p-4 rounded-lg shadow-md w-full text-orange-400 bg-gray-950 border border-gray-800 col-span-2">
       <h2 className="text-2xl font-bold">Pantry stats</h2>
       <div className="flex flex-col gap-4 mt-4">
         <div className="flex flex-row justify-between">
