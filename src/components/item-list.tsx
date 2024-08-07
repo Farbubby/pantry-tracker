@@ -9,7 +9,7 @@ interface QueryProps {
   filter: string;
 }
 
-const getItems = async () => {
+const getItems = async (filter: string) => {
   const supabase = createClient();
   const {
     data: { user },
@@ -23,6 +23,7 @@ const getItems = async () => {
     .from("pantry")
     .select()
     .eq("uuid", user.id)
+    .ilike("name", `%${filter}%`)
     .order("created_at", { ascending: false });
 
   if (error) {
@@ -37,7 +38,10 @@ const getItems = async () => {
 };
 
 export default function ItemList({ filter }: QueryProps) {
-  const query = useQuery({ queryKey: ["items"], queryFn: getItems });
+  const query = useQuery({
+    queryKey: ["items", filter],
+    queryFn: ({ queryKey }) => getItems(queryKey[1]),
+  });
 
   if (query.isLoading) {
     return <div>Loading...</div>;
