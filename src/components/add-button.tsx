@@ -13,10 +13,18 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { addItemAction } from "@/server/items/add";
-import { useFormState } from "react-dom";
+import { useQueryClient, useMutation } from "@tanstack/react-query";
 
 export default function AddButton() {
-  const [state, addItem] = useFormState(addItemAction, null);
+  const queryClient = useQueryClient();
+
+  const mutation = useMutation({
+    mutationFn: (formData: FormData) => addItemAction(formData),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["items"] }),
+  });
+
+  const state = mutation.data;
+
   return (
     <>
       <Dialog>
@@ -42,7 +50,10 @@ export default function AddButton() {
               <div className="text-sm text-green-500">{state.success}</div>
             )}
             <form
-              action={addItem}
+              onSubmit={(e) => {
+                mutation.mutate(new FormData(e.currentTarget));
+                e.preventDefault();
+              }}
               className="flex flex-col gap-4 w-full max-w-96"
               noValidate>
               <div className="flex flex-col gap-1">

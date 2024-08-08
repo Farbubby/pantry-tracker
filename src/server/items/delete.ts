@@ -4,7 +4,7 @@ import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 
-export async function deleteItemAction(name: string, _: unknown) {
+export async function deleteItemAction(name: string) {
   const supabase = createClient();
 
   const {

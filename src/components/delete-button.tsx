@@ -11,16 +11,20 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { deleteItemAction } from "@/server/items/delete";
-import { useFormState } from "react-dom";
 import { ItemContext } from "@/context/item";
 import { useContext } from "react";
+import { useQueryClient, useMutation } from "@tanstack/react-query";
 
 export default function RemoveButton() {
+  const queryClient = useQueryClient();
   const { name, quantity } = useContext(ItemContext);
-  const [state, deleteItem] = useFormState(
-    deleteItemAction.bind(null, name),
-    null
-  );
+
+  const mutation = useMutation({
+    mutationFn: () => deleteItemAction(name),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["items"] }),
+  });
+
+  const state = mutation.data;
   return (
     <>
       <Dialog>
@@ -44,7 +48,10 @@ export default function RemoveButton() {
               <div className="text-sm text-green-500">{state.success}</div>
             )}
             <form
-              action={deleteItem}
+              onSubmit={(e) => {
+                mutation.mutate();
+                e.preventDefault();
+              }}
               className="flex flex-col gap-4 w-full max-w-96"
               noValidate>
               <DialogFooter>

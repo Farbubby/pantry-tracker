@@ -13,16 +13,21 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { updateItemAction } from "@/server/items/update";
-import { useFormState } from "react-dom";
 import { ItemContext } from "@/context/item";
 import { useContext } from "react";
+import { useQueryClient, useMutation } from "@tanstack/react-query";
 
 export default function UpdateButton() {
+  const queryClient = useQueryClient();
   const { name, quantity } = useContext(ItemContext);
-  const [state, updateItem] = useFormState(
-    updateItemAction.bind(null, name),
-    null
-  );
+
+  const mutation = useMutation({
+    mutationFn: (formData: FormData) => updateItemAction(name, formData),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["items"] }),
+  });
+
+  const state = mutation.data;
+
   return (
     <>
       <Dialog>
@@ -48,7 +53,10 @@ export default function UpdateButton() {
               <div className="text-sm text-green-500">{state.success}</div>
             )}
             <form
-              action={updateItem}
+              onSubmit={(e) => {
+                mutation.mutate(new FormData(e.currentTarget));
+                e.preventDefault();
+              }}
               className="flex flex-col gap-4 w-full max-w-96"
               noValidate>
               <div className="flex flex-col gap-1">

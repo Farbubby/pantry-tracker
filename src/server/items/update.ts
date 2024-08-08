@@ -9,11 +9,7 @@ const UpdateItemSchema = z.object({
   quantity: z.number().int().min(1, "Quantity must be greater than 0"),
 });
 
-export async function updateItemAction(
-  name: string,
-  _: unknown,
-  formData: FormData
-) {
+export async function updateItemAction(name: string, formData: FormData) {
   const supabase = createClient();
 
   const {

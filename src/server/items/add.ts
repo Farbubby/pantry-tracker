@@ -13,7 +13,7 @@ const AddItemSchema = z.object({
   quantity: z.number().int().min(1, "Quantity must be greater than 0"),
 });
 
-export async function addItemAction(_: unknown, formData: FormData) {
+export async function addItemAction(formData: FormData) {
   const supabase = createClient();
 
   const {
