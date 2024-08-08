@@ -24,7 +24,7 @@ export default function SearchCard() {
             onChange={(e) => setQuery(e.target.value)}
           />
         </div>
-        <ItemList query={query} />
+        <ItemList filter={query} />
       </div>
     </>
   );
