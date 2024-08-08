@@ -39,12 +39,12 @@ export default async function Navbar() {
                 Open
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56 bg-gray-950 text-orange-400">
+            <DropdownMenuContent className="w-56 bg-gray-950 text-orange-400 border border-gray-800">
               <DropdownMenuLabel>{user.email}</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>
-                <form action={signOutAction} className="w-full">
-                  <button className="w-full text-left">Logout</button>
+              <DropdownMenuSeparator className="border border-gray-800" />
+              <DropdownMenuItem className="focus:bg-orange-400">
+                <form action={signOutAction} className="w-full h-full">
+                  <button className="w-full text-left font-bold">Logout</button>
                 </form>
               </DropdownMenuItem>
             </DropdownMenuContent>

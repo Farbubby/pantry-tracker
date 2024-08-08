@@ -61,7 +61,7 @@ export default function ItemList({ filter }: QueryProps) {
   }
 
   return (
-    <div className="grid sm:grid-cols-2 grid-cols-1 gap-4 w-full items-center overflow-scroll border border-gray-500 rounded-lg p-4 h-96">
+    <div className="grid sm:grid-cols-2 grid-cols-1 gap-4 w-full items-center overflow-scroll border border-gray-700 rounded-lg p-4 h-96">
       {query.data.map(
         (item: { id: string; name: string; quantity: number }) => (
           <ItemCard key={item.id} name={item.name} quantity={item.quantity} />
