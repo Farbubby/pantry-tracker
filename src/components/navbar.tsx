@@ -42,11 +42,13 @@ export default async function Navbar() {
             <DropdownMenuContent className="w-56 bg-gray-950 text-orange-400 border border-gray-800">
               <DropdownMenuLabel>{user.email}</DropdownMenuLabel>
               <DropdownMenuSeparator className="border border-gray-800" />
-              <DropdownMenuItem className="focus:bg-orange-400">
-                <form action={signOutAction} className="w-full h-full">
-                  <button className="w-full text-left font-bold">Logout</button>
-                </form>
-              </DropdownMenuItem>
+              <form action={signOutAction} className="w-full h-full">
+                <button className="w-full text-left font-bold">
+                  <DropdownMenuItem className="focus:bg-orange-400 cursor-pointer">
+                    Logout
+                  </DropdownMenuItem>
+                </button>
+              </form>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
